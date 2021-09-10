@@ -11,6 +11,8 @@ exports.handler = async (event, context) => {
     // Save the user to DynamoDB
     const date = new Date();
 
+    console.log("This is event object", event);
+
     const params = {
         Item: {
             'id': { S: event.request.userAttributes.sub },
