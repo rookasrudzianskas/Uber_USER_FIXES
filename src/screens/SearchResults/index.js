@@ -29,8 +29,6 @@ const SearchResults = (props) => {
         }
 
         /// submit to the server
-
-
         try {
 
             // console.log("something");
