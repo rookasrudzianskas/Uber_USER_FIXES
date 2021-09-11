@@ -25,6 +25,8 @@ const SearchResults = (props) => {
         // submit to the server
 
         try {
+
+            const userInfo = await Auth.getAuthenticatedUser
             const input = {
                 type: type,
                 originLatitude: originPlace.origin.details.geometry.location.lat,
