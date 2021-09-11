@@ -42,8 +42,10 @@ const HomeMap = (props) => {
                     initialRegion={{
                         // latitude: 37.78825,
                         // longitude: -122.4324,
-                        latitude: 28.450627,
-                        longitude: -16.263045,
+                        // latitude: 28.450627,
+                        // longitude: -16.263045,
+                        latitude: 54.7855097,
+                        longitude: 25.3463961,
                         latitudeDelta: 0.0222,
                         longitudeDelta: 0.0121,
                     }}
