@@ -13,6 +13,8 @@ const SearchResults = (props) => {
 
     const route = useRoute();
     const {originPlace, destinationPlace} = route.params;
+    console.log(originPlace)
+    // console.log("These are the maps", originPlace.origin.details.geometry.location.lat, destinationPlace.destination.details.geometry.location.lng);
     const typeState = useState(null);
     // console.log("🚀",route.params);
 
@@ -45,7 +47,7 @@ const SearchResults = (props) => {
                 input
             })))
 
-            console.log(response);
+            // console.log("This is response", response);
 
         } catch (e) {
             console.log(e);
