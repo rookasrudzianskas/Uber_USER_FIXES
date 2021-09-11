@@ -18,6 +18,9 @@ const SearchResults = (props) => {
     const typeState = useState(null);
     // console.log("🚀",route.params);
 
+    const navigation = useNavigation();
+
+
     const onSubmit = async () => {
         const [type] = typeState; /// takes the element 0
 
@@ -27,7 +30,6 @@ const SearchResults = (props) => {
 
         /// submit to the server
 
-        const navigation = useNavigation();
 
         try {
 
