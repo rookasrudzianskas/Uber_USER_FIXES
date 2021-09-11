@@ -52,3 +52,5 @@ const styles = StyleSheet.create({
 });
 
 export default withAuthenticator(App);
+
+// the authentication works fine
