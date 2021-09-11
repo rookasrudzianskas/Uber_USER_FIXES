@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions, Text, View} from "react-native";
 import UberTypes from "../../components/UberTypes";
 import RouteMap from "../../components/RouteMap";
@@ -11,6 +11,7 @@ const SearchResults = (props) => {
 
     const route = useRoute();
     const {originPlace, destinationPlace} = route.params;
+    const typeState = useState(null);
     // console.log("🚀",route.params);
 
     return (
@@ -22,7 +23,7 @@ const SearchResults = (props) => {
             </View>
 
             <View style={{height: 550}}>
-                <UberTypes />
+                <UberTypes typeState={} />
             </View>
         </View>
     );
