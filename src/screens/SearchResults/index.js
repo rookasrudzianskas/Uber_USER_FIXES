@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Dimensions, Text, View} from "react-native";
+import {Alert, Dimensions, Text, View} from "react-native";
 import UberTypes from "../../components/UberTypes";
 import RouteMap from "../../components/RouteMap";
 import {useRoute} from "@react-navigation/native";
@@ -18,44 +18,50 @@ const SearchResults = (props) => {
     const typeState = useState(null);
     // console.log("🚀",route.params);
 
-    const onSubmit = async() => {
-        const [type] = typeState;
+    const onSubmit = async () => {
+        const [type] = typeState; /// takes the element 0
+
         if(!type) {
             return;
         }
 
-        // submit to the server
-
-        const date = new Date();
+        /// submit to the server
 
         try {
 
             const userInfo = await Auth.currentAuthenticatedUser();
+
+            const date = new Date();
+
             const input = {
                 createdAt: date.toISOString(),
                 type: type,
                 originLatitude: originPlace.details.geometry.location.lat,
                 originLongitude: originPlace.details.geometry.location.lng,
-
-
                 destLatitude: destinationPlace.details.geometry.location.lat,
                 destLongitude: destinationPlace.details.geometry.location.lng,
 
-
                 userId: userInfo.attributes.sub,
-
                 carId: "1",
             }
-            const response = await API.graphql(graphqlOperation(createOrder({
-                input: input
-            })));
 
-            console.log("This is response", response);
+            const response = await API.graphql(graphqlOperation(createOrder, {
+                input: input,
+            }));
+
+            // console.log("🚀", response);
+
+            Alert.alert("Hurrayyy", "Your order has been confirmed successfully!", [{
+                text: "Go home",
+                // onPress: () => navigation.navigate("Home"),
+            }])
 
         } catch (e) {
             console.log(e);
         }
+
     }
+
 
     return (
         <View style={{justifyContent: 'space-between'}}>
