@@ -3,7 +3,7 @@ import {Dimensions, Text, View} from "react-native";
 import UberTypes from "../../components/UberTypes";
 import RouteMap from "../../components/RouteMap";
 import {useRoute} from "@react-navigation/native";
-import {API, graphqlOperation} from "aws-amplify";
+import {API, Auth, graphqlOperation} from "aws-amplify";
 import {createOrder} from "../../graphql/mutations";
 
 
@@ -26,7 +26,7 @@ const SearchResults = (props) => {
 
         try {
 
-            const userInfo = await Auth.getAuthenticatedUser
+            const userInfo = await Auth.currentAuthenticatedUser();
             const input = {
                 type: type,
                 originLatitude: originPlace.origin.details.geometry.location.lat,
@@ -37,7 +37,7 @@ const SearchResults = (props) => {
                 destLongitude: destinationPlace.destination.details.geometry.location.lng,
 
 
-                userId:
+                userId: userInfo.userAttributes.sub,
 
                 carId:
             }
