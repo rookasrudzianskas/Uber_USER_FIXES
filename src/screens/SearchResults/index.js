@@ -31,12 +31,12 @@ const SearchResults = (props) => {
             const userInfo = await Auth.currentAuthenticatedUser();
             const input = {
                 type: type,
-                originLatitude: originPlace.origin.details.geometry.location.lat,
-                originLongitude: originPlace.origin.details.geometry.location.lng,
+                originLatitude: originPlace.details.geometry.location.lat,
+                originLongitude: originPlace.details.geometry.location.lng,
 
 
-                destLatitude: destinationPlace.destination.details.geometry.location.lat,
-                destLongitude: destinationPlace.destination.details.geometry.location.lng,
+                destLatitude: destinationPlace.details.geometry.location.lat,
+                destLongitude: destinationPlace.details.geometry.location.lng,
 
 
                 userId: userInfo.attributes.sub,
@@ -47,7 +47,7 @@ const SearchResults = (props) => {
                 input
             })))
 
-            // console.log("This is response", response);
+            console.log("This is response", response);
 
         } catch (e) {
             console.log(e);
