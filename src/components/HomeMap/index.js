@@ -4,6 +4,8 @@ import MapView, {Marker} from 'react-native-maps';
 import styles from "./styles";
 // import cars from "../../../assets/data/cars";
 import * as Location from "expo-location";
+import {API, graphqlOperation} from "aws-amplify";
+import {listCars} from "../../graphql/queries";
 
 const HomeMap = (props) => {
     const [position, setPosition] = useState(null);
@@ -13,9 +15,10 @@ const HomeMap = (props) => {
     const {type} = props;
 
     useEffect(() =>  {
-        const fetchCars = () => {
+        const fetchCars = async () => {
             try {
-
+                const response = await API.graphql(graphqlOperation(listCars));
+                // console.log(response);
             } catch (e) {
                 console.log(e);
             }
