@@ -19,6 +19,9 @@ const HomeMap = (props) => {
             try {
                 const response = await API.graphql(graphqlOperation(listCars));
                 // console.log(response);
+
+
+
             } catch (e) {
                 console.log(e);
             }
