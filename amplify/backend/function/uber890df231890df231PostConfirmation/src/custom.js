@@ -4,7 +4,7 @@ const ddb = new aws.DynamoDB();
 exports.handler = async (event, context) => {
     if (!event.request.userAttributes.sub) {
         console.log("Error: No user was written to DynamoDB")
-        context.done(null, event);
+        // context.done(null, event);
         return;
     }
 
@@ -32,6 +32,6 @@ exports.handler = async (event, context) => {
         console.log("Error", e);
     }
 
-    context.done(null, event);
+    // context.done(null, event);
 }
 
