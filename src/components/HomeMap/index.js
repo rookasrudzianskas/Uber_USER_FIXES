@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {Dimensions, FlatList, Image, StyleSheet, Text, View} from "react-native";
 import MapView, {Marker} from 'react-native-maps';
 import styles from "./styles";
-import cars from "../../../assets/data/cars";
+// import cars from "../../../assets/data/cars";
 import * as Location from "expo-location";
 
 const HomeMap = (props) => {
     const [position, setPosition] = useState(null);
+    const [cars, setCars] = useState([]);
 
 
     const {type} = props;
