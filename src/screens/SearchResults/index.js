@@ -31,6 +31,8 @@ const SearchResults = (props) => {
                 originLongitude:
                 destLatitude:
                 destLongitude:
+                userId:
+                carId:
             }
             const response = await API.graphql(graphqlOperation(createOrder({
                 input
