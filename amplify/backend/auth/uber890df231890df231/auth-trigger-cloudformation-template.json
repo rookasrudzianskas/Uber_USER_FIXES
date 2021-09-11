@@ -103,13 +103,13 @@
         "Code": {
           "ZipFile": "const response = require('cfn-response');\nconst aws = require('aws-sdk');\n\nexports.handler = async function (event, context) {\n  try {\n    const userPoolId = event.ResourceProperties.userpoolId;\n    const lambdaConfig = event.ResourceProperties.lambdaConfig;\n    const config = {};\n    lambdaConfig.forEach(lambda => (config[`${lambda.triggerType}`] = lambda.lambdaFunctionArn));\n    if (event.RequestType == 'Delete') {\n      const authParams = { UserPoolId: userPoolId, LambdaConfig: {} };\n      const cognitoclient = new aws.CognitoIdentityServiceProvider();\n      try {\n        const result = await cognitoclient.updateUserPool(authParams).promise();\n        console.log('delete response data ' + JSON.stringify(result));\n        await response.send(event, context, response.SUCCESS, {});\n      } catch (err) {\n        console.log(err.stack);\n        await response.send(event, context, response.FAILED, { err });\n      }\n    }\n    if (event.RequestType == 'Update' || event.RequestType == 'Create') {\n      const authParams = { UserPoolId: userPoolId, LambdaConfig: config };\n      console.log(authParams);\n      const cognitoclient = new aws.CognitoIdentityServiceProvider();\n      try {\n        const result = await cognitoclient.updateUserPool(authParams).promise();\n        console.log('createOrUpdate response data ' + JSON.stringify(result));\n        await response.send(event, context, response.SUCCESS, { result });\n      } catch (err) {\n        console.log(err.stack);\n        await response.send(event, context, response.FAILED, { err });\n      }\n    }\n  } catch (err) {\n    console.log(err.stack);\n    await response.send(event, context, response.FAILED, { err });\n  }\n};\n"
         },
-        "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
             "authTriggerFnServiceRole08093B67",
             "Arn"
           ]
         },
+        "Handler": "index.handler",
         "Runtime": "nodejs12.x"
       },
       "DependsOn": [
