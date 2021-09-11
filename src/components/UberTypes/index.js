@@ -5,7 +5,9 @@ import typesData from "../../../assets/data/types";
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import styles from "./styles";
 
-const UberTypes = () => {
+const UberTypes = ({typeState}) => {
+
+    const [type, setType] = typeState;
 
     const confirm = () => {
         console.log("Clicked")
