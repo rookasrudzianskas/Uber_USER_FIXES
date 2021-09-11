@@ -41,7 +41,7 @@ const SearchResults = (props) => {
 
                 userId: userInfo.attributes.sub,
 
-                carId: "",
+                carId: "1",
             }
             const response = await API.graphql(graphqlOperation(createOrder({
                 input: input
