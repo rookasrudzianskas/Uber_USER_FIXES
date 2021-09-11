@@ -20,7 +20,7 @@ const HomeMap = (props) => {
                 const response = await API.graphql(graphqlOperation(listCars));
                 // console.log(response);
 
-
+                setCars(response.data.listCars.items);
 
             } catch (e) {
                 console.log(e);
