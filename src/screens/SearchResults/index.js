@@ -14,6 +14,15 @@ const SearchResults = (props) => {
     const typeState = useState(null);
     // console.log("🚀",route.params);
 
+    const onSubmit = async() => {
+        const [type] = typeState;
+        if(!type) {
+            return;
+        }
+
+        // submit to the server
+    }
+
     return (
         <View style={{justifyContent: 'space-between'}}>
 
@@ -23,7 +32,7 @@ const SearchResults = (props) => {
             </View>
 
             <View style={{height: 550}}>
-                <UberTypes typeState={typeState} />
+                <UberTypes typeState={typeState} onSubmit={onSubmit} />
             </View>
         </View>
     );
