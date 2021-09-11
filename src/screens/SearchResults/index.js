@@ -45,7 +45,7 @@ const SearchResults = (props) => {
             }
             const response = await API.graphql(graphqlOperation(createOrder({
                 input: input
-            })))
+            })));
 
             console.log("This is response", response);
 
