@@ -21,6 +21,14 @@ const SearchResults = (props) => {
         }
 
         // submit to the server
+
+        try {
+
+
+
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     return (
