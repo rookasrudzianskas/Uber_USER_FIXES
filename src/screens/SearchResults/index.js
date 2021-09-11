@@ -26,10 +26,13 @@ const SearchResults = (props) => {
 
         // submit to the server
 
+        const date = new Date();
+
         try {
 
             const userInfo = await Auth.currentAuthenticatedUser();
             const input = {
+                createdAt: date.toISOString(),
                 type: type,
                 originLatitude: originPlace.details.geometry.location.lat,
                 originLongitude: originPlace.details.geometry.location.lng,
