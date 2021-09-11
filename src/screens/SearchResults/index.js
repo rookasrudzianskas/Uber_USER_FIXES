@@ -26,10 +26,12 @@ const SearchResults = (props) => {
         }
 
         /// submit to the server
+
         const navigation = useNavigation();
 
         try {
 
+            // console.log("something");
             const userInfo = await Auth.currentAuthenticatedUser();
 
             const date = new Date();
@@ -50,11 +52,11 @@ const SearchResults = (props) => {
                 input: input,
             }));
 
-            // console.log("🚀", response);
+            console.log("🚀", response);
 
             Alert.alert("Hurrayyy", "Your order has been confirmed successfully!", [{
                 text: "Go home",
-                // onPress: () => navigation.navigate("Home"),
+                onPress: () => navigation.navigate("Home"),
             }])
 
         } catch (e) {
