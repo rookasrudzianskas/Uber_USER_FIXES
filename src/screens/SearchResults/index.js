@@ -37,13 +37,15 @@ const SearchResults = (props) => {
                 destLongitude: destinationPlace.destination.details.geometry.location.lng,
 
 
-                userId: userInfo.userAttributes.sub,
+                userId: userInfo.attributes.sub,
 
-                carId:
+                carId: "",
             }
             const response = await API.graphql(graphqlOperation(createOrder({
                 input
             })))
+
+            console.log(response);
 
         } catch (e) {
             console.log(e);
