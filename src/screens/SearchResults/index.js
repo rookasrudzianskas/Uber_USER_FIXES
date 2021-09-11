@@ -26,12 +26,17 @@ const SearchResults = (props) => {
 
         try {
             const input = {
-                type:
-                originLatitude:
-                originLongitude:
-                destLatitude:
-                destLongitude:
+                type: type,
+                originLatitude: originPlace.origin.details.geometry.location.lat,
+                originLongitude: originPlace.origin.details.geometry.location.lng,
+
+
+                destLatitude: destinationPlace.destination.details.geometry.location.lat,
+                destLongitude: destinationPlace.destination.details.geometry.location.lng,
+
+
                 userId:
+
                 carId:
             }
             const response = await API.graphql(graphqlOperation(createOrder({
