@@ -35,6 +35,3 @@ exports.handler = async (event, context) => {
     context.done(null, event);
 }
 
-// done
-// /Users/rookasrudzianskas/.tabnine/3.6.7/x86_64-apple-darwin/TabNine
-// done
