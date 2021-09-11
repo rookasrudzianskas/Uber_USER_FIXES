@@ -3,6 +3,8 @@ import {Dimensions, Text, View} from "react-native";
 import UberTypes from "../../components/UberTypes";
 import RouteMap from "../../components/RouteMap";
 import {useRoute} from "@react-navigation/native";
+import {API, graphqlOperation} from "aws-amplify";
+import {createOrder} from "../../graphql/mutations";
 
 
 
@@ -23,8 +25,12 @@ const SearchResults = (props) => {
         // submit to the server
 
         try {
+            const input = {
 
-
+            }
+            const response = await API.graphql(graphqlOperation(createOrder({
+                input
+            })))
 
         } catch (e) {
             console.log(e);
