@@ -7,7 +7,7 @@ import styles from "./styles";
 
 const UberTypes = ({typeState}) => {
 
-    const [type, setType] = typeState;
+    const [selectedType, setSelectedType] = typeState;
 
     const confirm = () => {
         console.log("Clicked")
@@ -17,7 +17,12 @@ const UberTypes = ({typeState}) => {
 
     return (
         <View>
-            {typesData.map(type => <UberTypeRow key={type.id} type={type} />)}
+            {typesData.map(type => <UberTypeRow
+                key={type.id}
+                isSelected={type.type === selectedType}
+                onPress={() => setSelectedType(type.type)}
+                type={type}
+            />)}
 
 
             <View style={styles.container}>

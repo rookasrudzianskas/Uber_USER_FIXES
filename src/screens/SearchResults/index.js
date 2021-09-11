@@ -23,7 +23,7 @@ const SearchResults = (props) => {
             </View>
 
             <View style={{height: 550}}>
-                <UberTypes typeState={} />
+                <UberTypes typeState={typeState} />
             </View>
         </View>
     );
