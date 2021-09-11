@@ -5,6 +5,12 @@ import {Entypo, Foundation} from "@expo/vector-icons";
 
 
 const CustomDrawer = (props) => {
+
+    const logOut = () => {
+
+    }
+
+
     return (
         <DrawerContentScrollView {...props}>
 
@@ -45,6 +51,12 @@ const CustomDrawer = (props) => {
                 <Pressable onPress={() => console.log("Make Money Driving")}>
                     <Text style={{color: 'white', fontSize: 18, paddingVertical: 5, marginBottom: 10}}>Make money driving</Text>
                 </Pressable>
+
+                <Pressable onPress={logOut}>
+                    <Text style={{color: 'gray', fontSize: 15, fontWeight: 'bold', paddingVertical: 5, marginBottom: 10}}>Log out from Uber</Text>
+                </Pressable>
+
+
             </View>
             <DrawerItemList {...props} />
         </DrawerContentScrollView>
