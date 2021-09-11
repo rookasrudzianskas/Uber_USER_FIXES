@@ -12,6 +12,19 @@ const HomeMap = (props) => {
 
     const {type} = props;
 
+    useEffect(() =>  {
+        const fetchCars = () => {
+            try {
+
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        fetchCars();
+
+    }, []);
+
 
     const getImageName = (type) => {
 
