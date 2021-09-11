@@ -3,7 +3,7 @@ type User @model {
   username: String!
   email: String!
 
-  orders: [Order] @connection(keyName: "byUser", fields: ["id"])
+#  orders: [Order] @connection(keyName: "byUser", fields: ["id"])
 }
 
 type Car @model {
@@ -13,28 +13,27 @@ type Car @model {
   longitude: Float,
   heading: Float,
 
-  orders: [Order] @connection(keyName: "byCar", fields: ["id"])
+#  orders: [Order] @connection(keyName: "byCar", fields: ["id"])
 }
 
-type Order @model
-@key(name: "byUser", fields: ["userId"])
-@key(name: "byCar", fields: ["carId", "createdAt"])  {
-
-  id: ID!
-  createdAt: ID!
-
-  userId: ID!
-  user: User @connection(fields: ["userId"])
-
-  type: String!
-  originLatitude: Float!
-  originLongitude: Float!
-
-  destLatitude: Float!
-  destLongitude: Float!
-
-
-  carId: ID!
-  car: Car @connection(fields: ["carId"])
-}
-
+#type Order @model
+#@key(name: "byUser", fields: ["userId"])
+#@key(name: "byCar", fields: ["carId", "createdAt"])  {
+#
+#  id: ID!
+#  createdAt: ID!
+#
+#  userId: ID!
+#  user: User @connection(fields: ["userId"])
+#
+#  type: String!
+#  originLatitude: Float!
+#  originLongitude: Float!
+#
+#  destLatitude: Float!
+#  destLongitude: Float!
+#
+#
+#  carId: ID!
+#  car: Car @connection(fields: ["carId"])
+#}

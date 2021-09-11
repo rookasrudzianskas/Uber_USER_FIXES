@@ -2,12 +2,12 @@ import React from 'react';
 import {Image, Pressable, Text, View} from "react-native";
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import {Entypo, Foundation} from "@expo/vector-icons";
-
+import {Auth} from "aws-amplify";
 
 const CustomDrawer = (props) => {
 
     const logOut = () => {
-
+        Auth.signOut();
     }
 
 
