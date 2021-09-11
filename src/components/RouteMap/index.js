@@ -28,6 +28,7 @@ const RouteMap = ({origin, destination}) => {
                 <MapView
                     style={{width: '100%', height: "100%"}}
                     provider="google"
+                    mapType={"mutedStandard"}
                     initialRegion={{
                         // latitude: 37.78825,
                         // longitude: -122.4324,
