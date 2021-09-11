@@ -17,7 +17,7 @@ const SearchResults = (props) => {
     const onSubmit = async() => {
         const [type] = typeState;
         if(!type) {
-            return;
+            return false;
         }
 
         // submit to the server
