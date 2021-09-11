@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Dimensions, Text, View} from "react-native";
 import UberTypes from "../../components/UberTypes";
 import RouteMap from "../../components/RouteMap";
-import {useRoute} from "@react-navigation/native";
+import {useNavigation, useRoute} from "@react-navigation/native";
 import {API, Auth, graphqlOperation} from "aws-amplify";
 import {createOrder} from "../../graphql/mutations";
 
@@ -26,6 +26,7 @@ const SearchResults = (props) => {
         }
 
         /// submit to the server
+        const navigation = useNavigation();
 
         try {
 
