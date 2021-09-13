@@ -11,16 +11,38 @@ export const getUser = /* GraphQL */ `
         items {
           id
           createdAt
-          userId
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          userId
           carId
           updatedAt
         }
         nextToken
+      }
+      car {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -41,6 +63,17 @@ export const listUsers = /* GraphQL */ `
         orders {
           nextToken
         }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -56,20 +89,44 @@ export const getCar = /* GraphQL */ `
       latitude
       longitude
       heading
+      isActive
       orders {
         items {
           id
           createdAt
-          userId
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
+          userId
           carId
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -89,8 +146,17 @@ export const listCars = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -104,6 +170,12 @@ export const getOrder = /* GraphQL */ `
     getOrder(id: $id) {
       id
       createdAt
+      type
+      status
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
       userId
       user {
         id
@@ -112,14 +184,20 @@ export const getOrder = /* GraphQL */ `
         orders {
           nextToken
         }
+        car {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
-      type
-      originLatitude
-      originLongitude
-      destLatitude
-      destLongitude
       carId
       car {
         id
@@ -127,8 +205,17 @@ export const getOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -147,6 +234,12 @@ export const listOrders = /* GraphQL */ `
       items {
         id
         createdAt
+        type
+        status
+        originLatitude
+        originLongitude
+        destLatitude
+        destLongitude
         userId
         user {
           id
@@ -155,11 +248,6 @@ export const listOrders = /* GraphQL */ `
           createdAt
           updatedAt
         }
-        type
-        originLatitude
-        originLongitude
-        destLatitude
-        destLongitude
         carId
         car {
           id
@@ -167,6 +255,8 @@ export const listOrders = /* GraphQL */ `
           latitude
           longitude
           heading
+          isActive
+          userId
           createdAt
           updatedAt
         }
