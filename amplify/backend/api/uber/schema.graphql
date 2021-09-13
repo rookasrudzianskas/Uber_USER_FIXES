@@ -7,8 +7,8 @@ type User @model {
   car: Car @connection(fields: ["id"])
 }
 
-type Car @model @key(name: "byUser", fields: ["userId"]) {
-
+type Car @model
+@key(name: "byUser", fields: ["userId"]) {
   id: ID!
   type: String!
   latitude: Float,
@@ -24,11 +24,9 @@ type Car @model @key(name: "byUser", fields: ["userId"]) {
 
 type Order @model
 @key(name: "byUser", fields: ["userId"])
-@key(name: "byCar", fields: ["carId", "createdAt"])  {
-
+@key(name: "byCar", fields: ["carId", "createdAt"]) {
   id: ID!
   createdAt: String!
-
 
   type: String!
   status: String,
@@ -45,3 +43,4 @@ type Order @model
   carId: ID!
   car: Car @connection(fields: ["carId"])
 }
+
