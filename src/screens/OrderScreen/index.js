@@ -63,7 +63,7 @@ const OrderScreen = (props) => {
                     id: order.carId
                 }))
 
-                setOrder(carData.data.getCar);
+                setCar(carData.data.getCar);
                 console.log("Car DAAATA", carData);
             } catch (e) {
                 console.log(e);
@@ -73,7 +73,6 @@ const OrderScreen = (props) => {
         fetchCar();
     }, [order]);
 
-    console.log("this is the car", car);
 
     return (
         <View style={styles.container}>
