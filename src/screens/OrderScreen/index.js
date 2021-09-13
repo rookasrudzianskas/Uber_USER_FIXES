@@ -6,6 +6,8 @@ import CovidMessage from "../../components/CovidMessage";
 import HomeSearch from "../../components/HomeSearchComponent";
 import OrderMap from "../../components/OrderMap";
 import {useRoute} from "@react-navigation/native";
+import {API, graphqlOperation} from "aws-amplify";
+import {getOrder} from "../../graphql/queries";
 
 const OrderScreen = (props) => {
 
@@ -18,7 +20,11 @@ const OrderScreen = (props) => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
+                const orderData = await API.graphql(graphqlOperation(getOrder, {
+                    id: route.params.id
+                }))
 
+                setOrder(orderData.data.getOrder);
             } catch (e) {
                 console.log(e);
             }
@@ -32,6 +38,10 @@ const OrderScreen = (props) => {
             <View style={{height: Dimensions.get('window').height - 200}}>
 
                 <OrderMap car={car} />
+            </View>
+
+            <View>
+
             </View>
 
             {/*<CovidMessage />*/}
