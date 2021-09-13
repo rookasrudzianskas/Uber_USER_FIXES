@@ -57,7 +57,7 @@ const SearchResults = (props) => {
 
             Alert.alert("Hurray", "Your order has been confirmed successfully!", [{
                 text: "Go home",
-                onPress: () => navigation.navigate("Home"),
+                onPress: () => navigation.navigate("OrderPage", { id: response.data.createOrder.id}),
             }])
 
         } catch (e) {

@@ -6,6 +6,7 @@ import {Text, View} from "react-native";
 import HomeScreen from "../screens/HomeScreen";
 import DestinationSearch from "../screens/DestinationSearch";
 import SearchResults from "../screens/SearchResults";
+import OrderScreen from "../screens/OrderScreen";
 
 const HomeNavigator = (props) => {
 
@@ -26,6 +27,10 @@ const HomeNavigator = (props) => {
             }} />
 
             <Stack.Screen name="SearchResults" component={SearchResults}  options={{
+                headerShown: false,
+            }} />
+
+            <Stack.Screen name="OrderPage" component={OrderScreen}  options={{
                 headerShown: false,
             }} />
 
