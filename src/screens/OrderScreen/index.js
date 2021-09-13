@@ -17,6 +17,8 @@ const OrderScreen = (props) => {
     const route = useRoute();
     // console.warn(route.params.id);
 
+    console.log(route.params.id);
+
     useEffect(() => {
         const fetchOrder = async () => {
             try {
