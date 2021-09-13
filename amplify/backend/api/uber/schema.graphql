@@ -14,6 +14,7 @@ type Car @model @key(name: "byUser", fields: ["userId"]) {
   latitude: Float,
   longitude: Float,
   heading: Float,
+  isActive: Boolean
 
   orders: [Order] @connection(keyName: "byCar", fields: ["id"])
 
@@ -32,6 +33,8 @@ type Order @model
   user: User @connection(fields: ["userId"])
 
   type: String!
+  status: String,
+
   originLatitude: Float!
   originLongitude: Float!
 
