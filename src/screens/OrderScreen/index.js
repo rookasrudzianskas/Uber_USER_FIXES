@@ -35,6 +35,11 @@ const OrderScreen = (props) => {
 
 
     useEffect(() => {
+
+        if(!order?.carId || order.carId === '1') {
+            return;
+        }
+
         const fetchCar = async () => {
             try {
                 const carData = await API.graphql(graphqlOperation(getCar, {
@@ -48,7 +53,7 @@ const OrderScreen = (props) => {
         }
 
         fetchCar();
-    }, []);
+    }, [order]);
 
     return (
         <View style={styles.container}>
