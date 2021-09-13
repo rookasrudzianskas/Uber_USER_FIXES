@@ -16,7 +16,15 @@ const OrderScreen = (props) => {
     // console.warn(route.params.id);
 
     useEffect(() => {
+        const fetchOrder = async () => {
+            try {
 
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        fetchOrder();
     }, []);
 
     return (
