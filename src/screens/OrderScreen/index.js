@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions, Text, View} from "react-native";
 import styles from "./styles";
 import HomeMap from "../../components/HomeMap";
@@ -13,7 +13,11 @@ const OrderScreen = (props) => {
     const [order, setOrder] = useState(null);
 
     const route = useRoute();
-    console.warn(route.params.id);
+    // console.warn(route.params.id);
+
+    useEffect(() => {
+
+    }, []);
 
     return (
         <View style={styles.container}>
