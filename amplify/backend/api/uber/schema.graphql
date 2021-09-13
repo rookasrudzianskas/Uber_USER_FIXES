@@ -4,10 +4,11 @@ type User @model {
   email: String!
 
   orders: [Order] @connection(keyName: "byUser", fields: ["id"])
-  car: Car @connection(fields: ["id"])
+  car: Car @connection(keyName: "byUser", fields: ["id"])
 }
 
-type Car @model {
+type Car @model @key(name: "byUser", fields: ["userId"]) {
+
   id: ID!
   type: String!
   latitude: Float,
