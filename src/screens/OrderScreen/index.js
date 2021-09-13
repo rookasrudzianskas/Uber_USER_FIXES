@@ -41,7 +41,7 @@ const OrderScreen = (props) => {
             </View>
 
             <View>
-
+                <Text>Order status: {order?.status}</Text>
             </View>
 
             {/*<CovidMessage />*/}
