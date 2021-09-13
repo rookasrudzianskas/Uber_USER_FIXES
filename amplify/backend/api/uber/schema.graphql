@@ -43,4 +43,3 @@ type Order @model
   carId: ID!
   car: Car @connection(fields: ["carId"])
 }
-
