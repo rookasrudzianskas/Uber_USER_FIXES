@@ -67,9 +67,6 @@ const OrderMap = ({car}) => {
                             }}/>
                         </Marker>)}
 
-
-
-
                 </MapView>
     );
 };
