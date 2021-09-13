@@ -55,7 +55,7 @@ const SearchResults = (props) => {
 
             console.log("🚀", response);
 
-            Alert.alert("Hurrayyy", "Your order has been confirmed successfully!", [{
+            Alert.alert("Hurray", "Your order has been confirmed successfully!", [{
                 text: "Go home",
                 onPress: () => navigation.navigate("Home"),
             }])
