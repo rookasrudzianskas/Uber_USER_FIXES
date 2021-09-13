@@ -64,7 +64,7 @@ const OrderScreen = (props) => {
                 }))
 
                 setCar(carData.data.getCar);
-                console.log("Car DAAATA", carData);
+                // console.log("Car DAAATA", carData);
             } catch (e) {
                 console.log(e);
             }

@@ -10,7 +10,7 @@ import {listCars} from "../../graphql/queries";
 const OrderMap = ({car}) => {
     const [position, setPosition] = useState(null);
 
-    console.log("This is the car", car);
+    // console.log("This is the car", car);
 
     const getImageName = (type) => {
 
