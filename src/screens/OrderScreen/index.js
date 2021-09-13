@@ -18,7 +18,7 @@ const OrderScreen = (props) => {
     const route = useRoute();
     // console.warn(route.params.id);
 
-    // console.log(route.params.id);
+    console.log(route.params.id);
 
     // fetch order on the initial render
     useEffect(() => {
@@ -111,4 +111,4 @@ const OrderScreen = (props) => {
 export default OrderScreen;
 
 
-// app is done
+// app is done 🔥s
