@@ -7,7 +7,7 @@ import HomeSearch from "../../components/HomeSearchComponent";
 import OrderMap from "../../components/OrderMap";
 import {useRoute} from "@react-navigation/native";
 import {API, graphqlOperation} from "aws-amplify";
-import {getOrder} from "../../graphql/queries";
+import {getCar, getOrder} from "../../graphql/queries";
 
 const OrderScreen = (props) => {
 
@@ -31,6 +31,23 @@ const OrderScreen = (props) => {
         }
 
         fetchOrder();
+    }, []);
+
+
+    useEffect(() => {
+        const fetchCar = async () => {
+            try {
+                const carData = await API.graphql(graphqlOperation(getCar, {
+                    id: order.carId
+                }))
+
+                setOrder(carData.data.getCar);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        fetchCar();
     }, []);
 
     return (
