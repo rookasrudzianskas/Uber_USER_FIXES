@@ -73,6 +73,8 @@ const OrderScreen = (props) => {
         fetchCar();
     }, [order]);
 
+    console.log("this is the car", car);
+
     return (
         <View style={styles.container}>
             <View style={{height: Dimensions.get('window').height - 200}}>
