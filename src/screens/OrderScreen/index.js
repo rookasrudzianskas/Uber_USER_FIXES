@@ -18,7 +18,7 @@ const OrderScreen = (props) => {
     const route = useRoute();
     // console.warn(route.params.id);
 
-    // console.log(route.params.id);
+    console.log(route.params.id);
 
     // fetch order on the initial render
     useEffect(() => {
@@ -49,6 +49,8 @@ const OrderScreen = (props) => {
         return () => subscription.unsubscribe();
     }, []);
 
+
+        // the car fetching then order is updated
     useEffect(() => {
 
         if(!order?.carId || order.carId === '1') {
@@ -62,6 +64,7 @@ const OrderScreen = (props) => {
                 }))
 
                 setOrder(carData.data.getCar);
+                console.log("Car DAAATA", carData);
             } catch (e) {
                 console.log(e);
             }
