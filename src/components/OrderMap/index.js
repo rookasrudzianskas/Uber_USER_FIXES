@@ -10,10 +10,6 @@ import {listCars} from "../../graphql/queries";
 const OrderMap = ({car}) => {
     const [position, setPosition] = useState(null);
 
-
-    const {type} = props;
-
-
     const getImageName = (type) => {
 
         if(type === 'UberX') {
