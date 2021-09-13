@@ -21,7 +21,15 @@ export const onOrderUpdated = /* GraphQL */ `
 export const onCarUpdated = /* GraphQL */ `
     subscription OnCarUpdated($id: ID!) {
         onCarUpdated(id: $id) {
-
+            id
+            type
+            latitude
+            longitude
+            heading
+            isActive
+            userId
+            createdAt
+            updatedAt
         }
     }
 `;

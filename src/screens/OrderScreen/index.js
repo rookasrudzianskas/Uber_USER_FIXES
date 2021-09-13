@@ -8,8 +8,7 @@ import OrderMap from "../../components/OrderMap";
 import {useRoute} from "@react-navigation/native";
 import {API, graphqlOperation} from "aws-amplify";
 import {getCar, getOrder} from "../../graphql/queries";
-import { onOrderUpdated} from "../../graphql/subscriptions";
-import {onCarUpdated} from "./subscriptions";
+import {onCarUpdated, onOrderUpdated} from "./subscriptions";
 
 const OrderScreen = (props) => {
 
@@ -19,7 +18,7 @@ const OrderScreen = (props) => {
     const route = useRoute();
     // console.warn(route.params.id);
 
-    console.log(route.params.id);
+    // console.log(route.params.id);
 
     // fetch order on the initial render
     useEffect(() => {
@@ -76,15 +75,19 @@ const OrderScreen = (props) => {
 
     // subscribe to the car updates
     useEffect(() => {
+        if(!order?.carId || order.carId === '1') {
+            return;
+        }
+
         const subscription = API.graphql(
-            graphqlOperation(onCarUpdated, { id: route.params.id })
+            graphqlOperation(onCarUpdated, { id: order.carId })
         ).subscribe({
-            next: ({ value }) => setOrder(value.data.onOrderUpdated),
+            next: ({ value }) => setCar(value.data.onCarUpdated),
             error: error => console.warn(error)
         })
 
         return () => subscription.unsubscribe();
-    }, []);
+    }, [order]);
 
 
     return (
