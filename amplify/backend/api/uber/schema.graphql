@@ -4,6 +4,7 @@ type User @model {
   email: String!
 
   orders: [Order] @connection(keyName: "byUser", fields: ["id"])
+  car: Car @connection(fields: ["id"])
 }
 
 type Car @model {
