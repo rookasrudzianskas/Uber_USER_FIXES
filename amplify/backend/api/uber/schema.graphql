@@ -15,6 +15,9 @@ type Car @model {
   heading: Float,
 
   orders: [Order] @connection(keyName: "byCar", fields: ["id"])
+
+  userId: ID!
+  user: User @connection(fields: ["userId"])
 }
 
 type Order @model
