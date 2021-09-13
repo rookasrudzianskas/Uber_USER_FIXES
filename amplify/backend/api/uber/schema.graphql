@@ -27,10 +27,8 @@ type Order @model
 @key(name: "byCar", fields: ["carId", "createdAt"])  {
 
   id: ID!
-  createdAt: ID!
+  createdAt: String!
 
-  userId: ID!
-  user: User @connection(fields: ["userId"])
 
   type: String!
   status: String,
@@ -41,6 +39,8 @@ type Order @model
   destLatitude: Float!
   destLongitude: Float!
 
+  userId: ID!
+  user: User @connection(fields: ["userId"])
 
   carId: ID!
   car: Car @connection(fields: ["carId"])
